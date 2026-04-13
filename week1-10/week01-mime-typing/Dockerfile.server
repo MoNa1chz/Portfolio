@@ -1,0 +1,29 @@
+# MIME socket server Dockerfile
+# Use Python 3.9 slim image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV STORAGE_DIR=/storage
+ENV PYTHONPATH=/app
+
+# Create a non-root user
+RUN useradd -m -s /bin/bash appuser && mkdir -p /app /storage && chown -R appuser:appuser /app /storage
+
+# Set working directory
+WORKDIR /app
+
+# Copy project files
+COPY . .
+
+# Ensure storage directory exists (will be created by server if not)
+RUN mkdir -p storage && chown appuser:appuser storage
+
+# Switch to non-root user
+USER appuser
+
+# Expose server port (default 65432)
+EXPOSE 65432
+
+# Command to run the enhanced server with configurable host/port
+CMD ["python", "server/main_enhanced.py", "--host", "0.0.0.0", "--port", "65432", "--storage", "/storage"]

@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "examples:stateful",
+			"path": "week02-stateless-stateful/phase1-mockup/.backup/backup-2026-02-06-09-57-14",
+			"problemMatcher": [],
+			"label": "npm: examples:stateful - week02-stateless-stateful/phase1-mockup/.backup/backup-2026-02-06-09-57-14",
+			"detail": "node src/clients/stateful-client.js",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

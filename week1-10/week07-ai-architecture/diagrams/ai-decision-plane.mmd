@@ -1,0 +1,37 @@
+graph TD
+    Client["🖥️ Client"]
+    
+    subgraph Edge["EDGE BUS"]
+        GW["Gateway"]
+        Auth["Auth"]
+    end
+    
+    subgraph Backend["BACK-END BUS"]
+        Upload["Upload Service"]
+        
+        subgraph AI["AI Decision Plane"]
+            Scorer["Risk Scorer\nML Model"]
+            Router["Autonomy Router\nLevel 0-3"]
+            Budget["Budget Checker"]
+        end
+        
+        Queue["Escalation Queue\n(Human Review)"]
+        Storage["Storage"]
+        AuditLog["Audit Log\n(Immutable)"]
+    end
+    
+    Human["👤 Human Reviewer"]
+    
+    Client -->|HTTPS| GW
+    GW --> Auth
+    Auth -->|gRPC| Upload
+    Upload --> Scorer
+    Scorer -->|risk_score| Router
+    Router --> Budget
+    Budget -->|within budget| Storage
+    Budget -->|exceeded| Queue
+    Router -->|gray zone| Queue
+    Router -->|Level 0| Queue
+    Queue --> Human
+    Human -->|override| AuditLog
+    Storage --> AuditLog

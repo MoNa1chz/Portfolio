@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service UploadService {
+  rpc UploadStream(stream UploadChunk) returns (UploadAck);
+}
+
+message UploadChunk {
+  bytes data     = 1;
+  uint32 sequence = 2;
+}
+
+message UploadAck {
+  string file_id       = 1;
+  uint64 bytes_received = 2;
+}

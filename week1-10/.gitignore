@@ -1,0 +1,117 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment
+.env
+.env.*
+.venv
+venv/
+ENV/
+env/
+*.env.local
+
+# IDE
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+.roo/
+*.code-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Test coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.hypothesis/
+coverage/
+*.cover
+.cache
+nosetests.xml
+coverage.xml
+
+# Build outputs
+*.dll
+*.exe
+*.out
+*.app
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Container volumes and data
+storage/received_*
+storage/test_*
+.backup/
+*.backup
+temp/
+tmp/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+postgres_data/
+redis_data/
+
+# Secrets and certificates
+*.key
+*.pem
+*.crt
+*.csr
+*.p12
+*.pfx
+secrets/
+certs/private/
+
+# Documentation build
+site/
+_site/
+.jekyll-cache/
+docs/_build/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~.nib
+.nfs*
